@@ -6,7 +6,11 @@ exports.getAnomalies = asyncHandler(async (req, res) => {
 
   // Edge case: if no expense records exist, return an empty array to prevent division by zero gracefully
   if (!expenses.length) {
-    return res.status(200).json({ success: true, data: { averageExpense: 0, anomalies: [] } });
+    return res.status(200).json({ 
+      success: true, 
+      message: "Anomaly detection completed successfully",
+      data: { averageExpense: 0, anomalyCount: 0, anomalies: [] } 
+    });
   }
 
   const avg =
@@ -16,8 +20,10 @@ exports.getAnomalies = asyncHandler(async (req, res) => {
 
   res.status(200).json({
     success: true,
+    message: "Anomaly detection completed successfully",
     data: {
-      averageExpense: avg,
+      averageExpense: Number(avg.toFixed(2)),
+      anomalyCount: anomalies.length,
       anomalies
     }
   });

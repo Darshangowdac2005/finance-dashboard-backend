@@ -10,9 +10,9 @@ User & Role Management (Viewer, Analyst, Admin)
 Financial Records CRUD
 Advanced Filtering & Pagination
 Dashboard APIs (summary, trends, categories)
-🧠 Intelligent Features
-Insight Engine (detects spending trends)
-Anomaly Detection (flags unusual expenses)
+### Intelligent Features
+- Insight Engine for trend detection
+- Rule-based anomaly detection with edge case handling
 🛠️ Tech Stack
 Node.js
 Express.js
