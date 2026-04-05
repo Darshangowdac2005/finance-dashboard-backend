@@ -1,0 +1,20 @@
+{
+  "name": "zorvyn",
+  "version": "1.0.0",
+  "description": "Finance Data Processing and Access Control Dashboard API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["finance", "dashboard", "api", "express", "mongodb"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.4.1"
+  }
+}
