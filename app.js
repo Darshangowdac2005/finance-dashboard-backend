@@ -6,8 +6,6 @@ const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const recordRoutes = require('./routes/records');
 const dashboardRoutes = require('./routes/dashboard');
-const insightRoutes = require('./routes/insights');
-
 const app = express();
 
 // ── Core Middleware ───────────────────────────────────────────────────────────
@@ -29,7 +27,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/records', recordRoutes);
 app.use('/api/dashboard', dashboardRoutes);
-app.use('/api/insights', insightRoutes);
+app.use("/api/insights", require("./routes/insightRoutes"));
+app.use("/api/records/anomalies", require("./routes/anomalyRoutes"));
 
 // ── 404 Handler ───────────────────────────────────────────────────────────────
 // Catches any route not matched above

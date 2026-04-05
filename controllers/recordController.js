@@ -8,7 +8,11 @@ const { buildPaginatedResponse, parsePagination } = require('../utils/helpers');
 // @access  Admin only
 // ─────────────────────────────────────────────────────────────────────────────
 const createRecord = asyncHandler(async (req, res) => {
-  const { amount, type, category, date, notes } = req.body;
+  let { amount, type, category, date, notes } = req.body;
+
+  if (!category && notes) {
+    if (notes.toLowerCase().includes("swiggy")) category = "Food";
+  }
 
   // Validate required fields explicitly for clear error messages
   if (amount === undefined || amount === null || !type || !category) {
