@@ -1,10 +1,7 @@
 const insightService = require("../services/insightService");
+const asyncHandler = require("../utils/asyncHandler");
 
-exports.getInsights = async (req, res) => {
-  try {
-    const insights = await insightService.generateInsights();
-    res.status(200).json({ insights });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
+exports.getInsights = asyncHandler(async (req, res) => {
+  const insights = await insightService.generateInsights();
+  res.status(200).json({ success: true, data: { insights } });
+});

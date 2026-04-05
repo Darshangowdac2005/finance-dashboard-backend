@@ -8,7 +8,6 @@ const {
   updateRecord,
   deleteRecord,
 } = require('../controllers/recordController');
-const { getAnomalies } = require('../controllers/insightController');
 
 /**
  * Financial Record Routes
@@ -22,7 +21,6 @@ const { getAnomalies } = require('../controllers/insightController');
  */
 
 // Specific routes BEFORE parameterized routes to avoid conflicts
-router.get('/anomalies', protect, authorize('analyst', 'admin'), getAnomalies);
 
 router
   .route('/')

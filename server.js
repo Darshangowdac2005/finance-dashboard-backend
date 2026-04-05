@@ -16,10 +16,9 @@ const startServer = async () => {
   await connectDB();
 
   const server = app.listen(PORT, () => {
-    console.log(
-      `🚀 Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`
-    );
-    console.log(`📊 Finance Dashboard API ready at http://localhost:${PORT}`);
+    console.log(`🚀 Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+    console.log(`📊 Dashboard APIs active`);
+    console.log(`🧠 Insights engine initialized`);
     console.log(`❤️  Health check: http://localhost:${PORT}/health`);
   });
 

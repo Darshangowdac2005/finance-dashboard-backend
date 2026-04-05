@@ -29,6 +29,7 @@ app.use('/api/records', recordRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use("/api/insights", require("./routes/insightRoutes"));
 app.use("/api/records/anomalies", require("./routes/anomalyRoutes"));
+app.use("/api/dev", require("./routes/devRoutes"));
 
 // ── 404 Handler ───────────────────────────────────────────────────────────────
 // Catches any route not matched above

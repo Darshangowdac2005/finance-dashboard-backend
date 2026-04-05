@@ -32,6 +32,23 @@ npm run dev
 /api/dashboard
 /api/insights
 /api/records/anomalies
+/api/dev/seed (Testing endpoint)
+
+### Sample API Response (GET /api/insights)
+```json
+{
+  "success": true,
+  "data": {
+    "insights": [
+      "Your Food spending increased by 34.5% compared to last week."
+    ]
+  }
+}
+```
+
+✨ Why This Project is Unique
+While many student projects stop at basic CRUD operations, this backend introduces algorithmic evaluation to provide active value to users. Time-comparison logic simulates real product analytics, preparing it for real-world fintech scaling patterns.
+
 💡 Key Highlight
 
 This backend goes beyond CRUD by incorporating insight generation and anomaly detection, demonstrating real-world backend intelligence and product thinking.

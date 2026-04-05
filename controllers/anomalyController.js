@@ -1,19 +1,24 @@
 const Record = require("../models/Record");
+const asyncHandler = require("../utils/asyncHandler");
 
-exports.getAnomalies = async (req, res) => {
-  try {
-    const expenses = await Record.find({ type: "expense" });
+exports.getAnomalies = asyncHandler(async (req, res) => {
+  const expenses = await Record.find({ type: "expense" });
 
-    const avg =
-      expenses.reduce((sum, e) => sum + e.amount, 0) / expenses.length;
+  // Edge case: if no expense records exist, return an empty array to prevent division by zero gracefully
+  if (!expenses.length) {
+    return res.status(200).json({ success: true, data: { averageExpense: 0, anomalies: [] } });
+  }
 
-    const anomalies = expenses.filter(e => e.amount > 2 * avg);
+  const avg =
+    expenses.reduce((sum, e) => sum + e.amount, 0) / expenses.length;
 
-    res.status(200).json({
+  const anomalies = expenses.filter(e => e.amount > 2 * avg);
+
+  res.status(200).json({
+    success: true,
+    data: {
       averageExpense: avg,
       anomalies
-    });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
+    }
+  });
+});
